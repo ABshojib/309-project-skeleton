@@ -1,8 +1,38 @@
 <html>
     <head>
-        <title>create Article</title>
+        <title>New Article</title>
     </head>
     <body>
-        <h1>create Article</h1>
+        <h1>New Article</h1>
+        <div>Title:
+        <input type="text" id="title"/>
+        </div>
+        <div>content:
+            <textarea id="content"></textarea>
+            
+        </div>
+        <br>
+        <button id="submit">SUBMIT</button>
+        
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script>
+            var article={title:"", content:""};
+            $("#title").change(function(){
+                article.title=$("#title").val();
+            });
+             $("#content").change(function(){
+                article.content=$("#content").val();
+            });
+             $("#submit").click(function(){
+                 console.log(article);
+              $.ajax({
+                  method:"POST",
+                  url:"/api/articles",
+                  data:article
+              }).done(function(response){
+                  console.log(response);
+              });
+            });
+        </script>
     </body>
 </html>
