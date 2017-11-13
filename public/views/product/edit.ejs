@@ -1,9 +1,55 @@
 <html>
     <head>
-        <title>edit Article</title>
+        <title> Edit Product</title>
     </head>
     <body>
-        <h1>edit Article</h1>
-        <input type="textarea">
+        <h1>Edit Product</h1>
+        <div>name:
+        <input type="text" id="name" value=<%=request.product.name%>/>
+        </div>
+        <br>
+        <div>description:
+            <textarea id="description"><%=request.product.description%></textarea>
+            
+        </div>
+        <br>
+         <div>price:
+            <input type="text" id="price"value=<%=request.product.price%>></textarea>
+            
+        </div>
+        <br>
+         <div>quantity:
+            <input type="text" id="quantity" value=<%=request.product.quantity%>></textarea>
+            
+        </div>
+        <br>
+        <button id="submit">SUBMIT</button>
+        
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script>
+            var productID=<%- JSON.stringify(request.product._id)%>;
+            var product={};
+            $("#name").change(function(){
+            });
+             $("#description").change(function(){
+             
+            });
+             $("#price").change(function(){
+               
+            });
+             $("#quantity").change(function(){
+              
+            });
+             $("#submit").click(function(){
+                 console.log(product);
+              $.ajax({
+                  method:"PUT",
+                  url:"/api/products/edit/"+productID,
+                  data:product
+              }).done(function(response){
+                  console.log(response);
+              });
+            });
+        </script>
     </body>
 </html>

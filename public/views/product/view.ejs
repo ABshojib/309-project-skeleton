@@ -6,7 +6,9 @@
         <h1>Product</h1>
         <% console.log(request.product)%>
         <h2>name:<%=request.product.name %></h2>
-        <p> <%= request.product.description %> </p>
-        <p> <%= request.product.created %> </p>
+        <p> description: <%= request.product.description %> </p>
+        <p>price: <%= request.product.price %> </p>
+        <p>quantity: <%= request.product.quantity %> </p>
+        <p>created:<%= request.product.created %> </p>
     </body>
 </html>

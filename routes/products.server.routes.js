@@ -8,7 +8,7 @@ app.route('/products/new')
 app.route('/products/all')
 	.get(products.all);
 	
-app.route('/products/edit')
+app.route('/products/edit/:productId')
 	.get(products.edit);
 	
 app.route('/products/:productId')
