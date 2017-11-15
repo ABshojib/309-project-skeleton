@@ -14,7 +14,10 @@
         </div>
         <br>
          <div>price:
+        
             <input type="text" id="price"value=<%=request.product.price%>></textarea>
+             <label style="color:red" id="error" type="text"></label>
+             
             
         </div>
         <br>
@@ -50,6 +53,10 @@
               }).done(function(response){
                   console.log(response);
                   window.location.replace("/products/"+response._id);
+              }).fail(function(response){
+                  
+                  $("#error").text(JSON.parse(response.responseText).message);
+                  console.log(JSON.parse(response.responseText).message);
               });
             });
         </script>
