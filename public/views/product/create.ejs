@@ -48,6 +48,7 @@
                   data:product
               }).done(function(response){
                   console.log(response);
+                  window.location.replace("/products/"+response._id);
               });
             });
         </script>

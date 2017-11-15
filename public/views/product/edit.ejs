@@ -29,16 +29,17 @@
         <script>
             var productID=<%- JSON.stringify(request.product._id)%>;
             var product={};
-            $("#name").change(function(){
+             $("#name").change(function(){
+                product.name=$("#name").val();
             });
              $("#description").change(function(){
-             
+                product.description=$("#description").val();
             });
              $("#price").change(function(){
-               
+                product.price=$("#price").val();
             });
              $("#quantity").change(function(){
-              
+                product.quantity=$("#quantity").val();
             });
              $("#submit").click(function(){
                  console.log(product);
@@ -48,6 +49,7 @@
                   data:product
               }).done(function(response){
                   console.log(response);
+                  window.location.replace("/products/"+response._id);
               });
             });
         </script>
